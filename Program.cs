@@ -34,9 +34,72 @@ namespace dz_2020_04_04
             this.EUR = eur;
             this.RUB = rub;
         }
-        public double UniversalConvert(string from, string to, decimal cash)
+        public decimal UniversalConverter(string from, string to, decimal cash)
         {
-            
+            if(from == "USD")
+            {
+                if(to == "SMN")
+                {
+                    return cash * this.USD;
+                }
+                if(to == "EUR")
+                {
+                    return (cash * this.USD) / this.EUR;
+                }
+                if(to == "RUB")
+                {
+                    return (cash * this.USD) / this.RUB; 
+                }
+                return 0;
+            }
+            if(from == "EUR")
+            {
+                if(to == "SMN")
+                {
+                    return cash * this.EUR;
+                }
+                if(to == "USD")
+                {
+                    return (cash * this.EUR) / this.USD;
+                }
+                if(to == "RUB")
+                {
+                    return (cash * this.EUR) / this.RUB; 
+                }
+            }
+            if(from == "RUB")
+            {
+                if(to == "SMN")
+                {
+                    return cash * this.RUB;
+                }
+                if(to == "EUR")
+                {
+                    return (cash * this.RUB) / this.EUR;
+                }
+                if(to == "USD")
+                {
+                    return (cash * this.RUB) / this.USD; 
+                }
+                return 0;
+            }
+            if(from == "SMN")
+            {
+                if(to == "USD")
+                {
+                    return cash / this.USD;
+                }
+                if(to == "EUR")
+                {
+                    return cash / this.EUR;
+                }
+                if(to == "RUB")
+                {
+                    return cash / this.RUB; 
+                }
+                return 0;
+            }
+            return 0;
         }
     }
 }
