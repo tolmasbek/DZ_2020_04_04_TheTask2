@@ -19,22 +19,30 @@ namespace dz_2020_04_04
              *          одну из указанных валют, также программа должна производить
              *          конвертацию из указанных валют в сомони.
              */
-            
+                // курсы валют по отнощению к Сомони 1$ = 10 smn, 1eur = 12 smn, 1 rub = 0,132 smn
+            Converter conv = new Converter(10, 12, 0.132); // Экземпляр класса Converter
+                // вводим от какие валюты нужно сконвертировать и сумму конвертируемой валюты, 
+                // Валюты нужно ввести следующим образом: "SMN" - сомони, "USD" - доллары, "EUR" - евро.
+                // например, SMN --> USD      рубли|в|сомони|1000 rub конвертирует в сомони             
+            double s = conv.UniversalConverter("RUB", "SMN", 1000);
+                // выводим результат конвертации
+            System.Console.WriteLine(Math.Round(s,4));  
+
             Console.ReadKey();
         }
     }
     class Converter
     {
-        private decimal USD;
-        private decimal EUR;
-        private decimal RUB;
-        public Converter(decimal usd, decimal eur, decimal rub)
+        private double USD;
+        private double EUR;
+        private double RUB;
+        public Converter(double usd, double eur, double rub)
         {
             this.USD = usd;
             this.EUR = eur;
             this.RUB = rub;
         }
-        public decimal UniversalConverter(string from, string to, decimal cash)
+        public double UniversalConverter(string from, string to, double cash)
         {
             if(from == "USD")
             {
@@ -103,3 +111,10 @@ namespace dz_2020_04_04
         }
     }
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// Сложности были с Конвертацией, и с типом класса конструктора иметода и тд 
+////////
+/////01010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
